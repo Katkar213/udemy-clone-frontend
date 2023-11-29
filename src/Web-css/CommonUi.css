@@ -1,0 +1,335 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.parent {
+    width: 90vw;
+    margin: auto;
+}
+
+/* titles...... */
+.titels-parent {
+    width: 85vw;
+    padding-top: 30px;
+    text-align: left;
+    line-height: 8vh;
+    /* border: 2px solid red; */
+
+}
+
+
+/* small navbar......................*/
+.small-navbar {
+    display: flex;
+    width: 85vw;
+    gap: 20px;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.underline-p {
+    border-bottom: 2px solid black;
+}
+
+
+/* first images div........................*/
+.images-div-parent {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    margin: auto;
+    margin: 20px auto;
+}
+.ratings{
+    color:gray;
+}
+
+.images-div {
+    /* border: 2px solid black; */
+    width: 16vw;
+    text-align: left;
+}
+
+.image-div-price p {
+    font-weight: bold;
+}
+
+.images-div-prices {
+    display: flex;
+    gap: 10px;
+    text-align: left;
+    /* border:2px solid brown;  */
+}
+
+.commonui-dashed-price {
+    text-decoration: line-through;
+    color: lightgrey;
+    font-weight: 300;
+}
+
+.images-div-title {
+    min-height: 6vh;
+    /* border: 2px solid brown; */
+    align-items:baseline;
+}
+.images-div-image{
+    height: 16vh;
+    width: 100%;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.425);
+    /* border:2px solid yellow; */
+}
+
+/* instructors.... */
+
+.instructor-parent{
+    /* border:2px solid greenyellow; */
+    display:flex;margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+    /* width:80vw; */
+    /* gap:10px; */
+
+}
+
+.instructor-div-inner{
+    min-height: 20vh;
+    padding:5px;
+    display: flex;
+    /* border:2px solid green; */
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.425);
+    width:21vw;
+    justify-content: space-between;
+}
+.instructor-div-inner:hover{
+    background-color: rgba(211, 211, 211, 0.104);
+}
+.instructor-div-image img{
+    height:3.7rem;
+    width:3.7rem;
+    border-radius: 50%;
+}
+.instructor-div-image{
+    padding-top: 8px;
+    /* border: 2px solid yellow; */
+}
+
+.instructor-div-text{
+    display: flex;
+    text-align: left;
+    /* border: 2px solid yellow; */
+    flex-direction: column;
+    width:15vw;
+}
+.popular-instructor-heading{
+    text-align: left;
+    margin: 30px 0px;
+    /* border: 2px solid yellow; */
+}
+.spl-font{
+    font-size:13px;
+}
+.span1{
+    font-size:17px; 
+}
+span{
+    font-weight: bold;
+    color:black;
+}
+
+/* all development courses...... */
+.all-development-courses-heading{
+    margin: 20px 0px;
+}
+.development-courses-notification{
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.425);
+    display: flex;
+    padding:10px;
+    gap:18px;
+    margin: 20px 0px;
+}
+.filter-symbol{
+    font-weight: bold;
+    
+}
+.fa-circle-exclamation{
+    font-size: 24px;
+}
+.filter-results{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    /* border: 2px solid red; */
+    margin: 10px auto;
+}
+.sort-results{
+    border: 1px solid black;  
+    padding:4px 10px;
+    align-items: center;
+    width:11vw;
+    padding:4px 13px;
+}
+.filter-div{
+    border: 1px solid black;
+    padding:15px 18px;
+    font-weight: bold;
+    width:8vw;
+    gap:0.4rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.filter-sortby{
+    display: flex;
+    gap:20px;
+    height:9vh;
+    /* width:22vw;
+    border:2px solid brown; */
+}
+.results p{
+    color:gray;
+}
+.down-arrow{
+    float: right;
+}
+
+/* bottom-rightside-div.......... */
+.bottom-right-div{
+    display: flex;
+    margin: 10px;
+    gap:2vw;
+    /* width:69vw; */
+    /* border: 2px solid black; */
+}
+.bottom-div-parent{
+    display: flex;
+    /* justify-content: space-between; */
+    gap:2vw;
+    /* width:70vw; */
+    /* border: 2px solid black; */
+}
+.bottom-div-parent-left{
+    /* border:2px solid pink; */
+    width:20vw;
+
+}
+.bottom-div-parent-left{
+    display: flex;
+    flex-direction: column;
+}
+.hollow-circle{
+    font-size: 18px;
+}
+.bottom-div-left-heading{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.bottom-left-div-ratings{
+margin-top: 10px;
+text-align: left;
+padding:5px;
+}
+.bottom-div-left1{
+    border-top: 2px solid lightgrey;
+    text-align: left;
+    padding: 10px;
+}
+.show-more{
+    text-decoration: none;
+    font-weight: bold;
+}
+.left-div-shortcut{
+    text-align: left;
+        /* border:2px solid black; */
+    padding: 15px 8px;
+    border-top: 2px solid lightgrey;
+
+}
+
+
+.bottom-div-parent-right{
+    /* border:2px solid black; */
+    width:70vw;
+}
+
+.imagetitle-des-price{
+    display: flex;
+    justify-content: space-between;
+    /* border:2px solid pink; */
+    width:50vw;
+}
+.bottom-right-div-images-price{
+    display: flex;
+    flex-direction: column;
+}
+.bottom-right-div-text{
+    padding-top: 10px;
+    text-align: left;
+    width:40vw;
+}
+.bottom-right-div-images{
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.425);
+}
+
+
+
+/* popular topics....... */
+
+.popular-topics-div-parent{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.popular-topics-div{
+    /* border:2px solid black; */
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.425);
+    height:8vh;
+    width:17vw;
+    align-items: center;
+    padding: 15px 0px;
+    margin-top: 9px;
+}
+.popular-topics-div:hover{
+    background-color: rgba(211, 211, 211, 0.167);
+}
+
+
+/* bottom div sponsors........... */
+.bottom-right-div-sponsors{
+    display: flex;
+    /* border:2px solid black; */
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.425);
+    padding:4rem 1rem;
+    margin: 1.6rem auto;
+    justify-content: space-between;
+}
+.bottom-right-div-sponsors-div1{
+    /* border:2px solid black;   */
+    padding:1rem 0.5rem;
+    width:20vw;
+}
+.bottom-right-div-sponsors-div2{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* border:2px solid black; */
+    width:29vw;
+    padding: 1rem;
+}
+.bottom-right-div-sponsors-div3{
+    /* border:2px solid black; */
+     padding-top: 2rem; 
+}
+.try-udemy-business-btn{
+    height:6vh;
+    font-size: 14px;
+    padding: 0.3rem;
+    font-weight: bold;
+    background-color: transparent;
+    width:13vw;
+}
+.div{
+    text-align: left;
+}
