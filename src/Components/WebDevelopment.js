@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react'
 import CommonUi from './CommonUi'
 import axios from "axios"
 
-
 const Development = () => {
   const [data,setData]=useState([])
   const[newdata,setNewData]=useState([])
@@ -27,27 +26,27 @@ const Development = () => {
 
 
   useEffect(() => {
-    const filteredData = data.filter((item) => item.category === 'Development-title');
+    const filteredData = data.filter((item) => item.category === 'Web-Development-title');
     setNewData(filteredData);
   }, [data]);
 
   useEffect(() => {
-    const filteredData = data.filter((item) => item.category === 'Development');
+    const filteredData = data.filter((item) => item.category === 'Web-Development');
     setSmallNav(filteredData);
   }, [data]);
 
   useEffect(() => {
-    const filteredData = data.filter((item) => item.category === 'Development-instructors');
+    const filteredData = data.filter((item) => item.category === 'Web-Development-instructors');
     setInstructor(filteredData);
   }, [data]);
 
   useEffect(() => {
-    const filteredData = data.filter((item) => item.category === 'Development-popular-topics');
+    const filteredData = data.filter((item) => item.category === 'Web-Development-popular-topics');
     setPopularTopics(filteredData);
   }, [data]);
 
   useEffect(() => {
-    const filteredData = data.filter((item) => item.category === 'Development-ratings');
+    const filteredData = data.filter((item) => item.category === 'Web-Development-ratings');
     setDevelopmentRatings(filteredData);
   }, [data]);
 
