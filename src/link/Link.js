@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Home from '../Components/Home';
-import Development from '../Components/Development';
+// import Development from '../Components/Development';
 import WebDevelopment from '../Components/WebDevelopment';
 import CommonUi from '../Components/CommonUi';
 import LogIn from '../Components/UserAuthentication/Login';
@@ -144,11 +144,7 @@ const Link = () => {
   ]
 
 
-  const Obj={
-    // instructors: staticInstructors,
-    popularTopics:staticPopularTopics,
-    ratings:staticRatings
-  }
+
   return (
     <div>
       <BrowserRouter>
