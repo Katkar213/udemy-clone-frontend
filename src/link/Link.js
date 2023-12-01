@@ -63,58 +63,58 @@ const Link = () => {
     },
   ];
 
-  const staticPopularTopics=[
-    {
-          id: "22",
-          category: "Development-popular-topics",
-            topic:"Python"
-      },
-      {
-          id: "23",
-          category: "Development-popular-topics",
-            topic:"DataScience"
-      },
-      {
-          id: "24",
-          category: "Development-popular-topics",
-            topic:"React Js"
-      },
-      {
-          id: "25",
-          category: "Development-popular-topics",
-            topic:"Java"
-      },
-      {
-          id: "26",
-          category: "Development-popular-topics",
-            topic:"C#(Programming language)"
-      },
-      {
-          id: "27",
-          category: "Development-popular-topics",
-            topic:"Web Development"
-      },
-      {
-          id: "28",
-          category: "Development-popular-topics",
-            topic:"JavaScript"
-      },
-      {
-          id: "29",
-          category: "Development-popular-topics",
-            topic:"Unreal Engine"
-      },
-      {
-          id: "30",
-          category: "Development-popular-topics",
-            topic:"Machine Learning"
-      },
-      {
-          id: "31",
-          category: "Development-popular-topics",
-            topic:"Unity"
-      },
-  ]
+  // const staticPopularTopics=[
+  //   {
+  //         id: "22",
+  //         category: "Development-popular-topics",
+  //           topic:"Python"
+  //     },
+  //     {
+  //         id: "23",
+  //         category: "Development-popular-topics",
+  //           topic:"DataScience"
+  //     },
+  //     {
+  //         id: "24",
+  //         category: "Development-popular-topics",
+  //           topic:"React Js"
+  //     },
+  //     {
+  //         id: "25",
+  //         category: "Development-popular-topics",
+  //           topic:"Java"
+  //     },
+  //     {
+  //         id: "26",
+  //         category: "Development-popular-topics",
+  //           topic:"C#(Programming language)"
+  //     },
+  //     {
+  //         id: "27",
+  //         category: "Development-popular-topics",
+  //           topic:"Web Development"
+  //     },
+  //     {
+  //         id: "28",
+  //         category: "Development-popular-topics",
+  //           topic:"JavaScript"
+  //     },
+  //     {
+  //         id: "29",
+  //         category: "Development-popular-topics",
+  //           topic:"Unreal Engine"
+  //     },
+  //     {
+  //         id: "30",
+  //         category: "Development-popular-topics",
+  //           topic:"Machine Learning"
+  //     },
+  //     {
+  //         id: "31",
+  //         category: "Development-popular-topics",
+  //           topic:"Unity"
+  //     },
+  // ]
 
   const staticRatings=[
     {
