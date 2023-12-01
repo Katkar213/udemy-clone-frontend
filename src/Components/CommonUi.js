@@ -427,7 +427,7 @@ const CommonUi = () => {
   console.log(state)
   const [data, setData] = useState([])
   const [newdata, setNewData] = useState([])
-  const [populartopics, setPopularTopics] = useState([])
+  const [popularTopics2,setPopularTopics2] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -447,13 +447,13 @@ const CommonUi = () => {
     // console.log(filteredData)
     setNewData(filteredData);
 
-  }, [data]);
+  }, [data,params.category]);
   useEffect(() => {
     const populartopicsData = PopularTopics.filter((item) => item.category === params.category)
-    const populartopicsData2 = populartopicsData.content
-    setPopularTopics(populartopicsData2)
+    // const populartopicsData2 = populartopicsData.content
+     setPopularTopics2(populartopicsData)
     // console.log(PopularTopics)
-  }, [newdata]);
+  }, [newdata,params.category]);
 
   console.log(params)
   return (
@@ -506,7 +506,7 @@ const CommonUi = () => {
       {/* popular topics... */}
       <div className="popular-instructor-heading"><h2>Popular Topics</h2></div>
       <div className="popular-topics-div-parent">
-        {PopularTopics.map((item, index) => {
+        {popularTopics2.map((item, index) => {
           // console.log(item.content)
           return (
             <div className="popular-topics-div" key={index}>
