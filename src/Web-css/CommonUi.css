@@ -336,3 +336,25 @@ padding:5px;
 .div{
     text-align: left;
 }
+
+.addtocart{
+    /* display:none; */
+    text-align: center;
+    height:6vh;
+    width:8vw;
+    background-color: blueviolet;
+    color:white;
+    font-size: 18px;
+
+}
+.addtocart-btn{
+    text-align: center;
+    display: none;
+}
+.images-div:hover .addtocart-btn{
+    display:block;
+}
+.bottom-right-div-outer:hover .addtocart-btn{
+    display:block;
+}
+

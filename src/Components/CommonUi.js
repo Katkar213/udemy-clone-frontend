@@ -11,43 +11,44 @@ import { NavLink, useParams, useLocation } from "react-router-dom"
 const PopularTopics = [
   {
     category: "Development",
-    content: ["Python", "DataScience", "React Js", "Java", "C#(Programming language)", "Web Development", "JavaScript", "Unreal Engine", "Machine Learning", "Unity"],
+    Content: ["Python", "DataScience", "React Js", "Java", "C#(Programming language)", "Web Development", "JavaScript", "Unreal Engine", "Machine Learning", "Unity"],
   },
   {
     category: "Business",
-    content: ["PMI Project Management Professional(PMP)", "Project Management", "Data Modeling", "Business Analysis", "Real Estate Investing", "Microsoft Power BI", "SQl", "PMI PMBOK", "Data Analysis", "Product Management"],
+    Content: ["PMI Project Management Professional(PMP)", "Project Management", "Data Modeling", "Business Analysis", "Real Estate Investing", "Microsoft Power BI", "SQl", "PMI PMBOK", "Data Analysis", "Product Management"],
   },
   {
-    category: "Finance & Accounting",
-    content: ["Stock Trading", "Financial Analysis", "Accounting", "Investing", "Forex Trading", "Technical Analysis (finance)", "Cryptocurrency", "Financial Modeling", "Algorithmic Trading", "Options Trading"],
+    category: "Finance and Accounting",
+    Content: ["Stock Trading", "Financial Analysis", "Accounting", "Investing", "Forex Trading", "Technical Analysis (finance)", "Cryptocurrency", "Financial Modeling", "Algorithmic Trading", "Options Trading"],
   },
   {
-    category: "IT & Software",
-    content: ["AWS Certified Cloud Practitioner", "Ethical Hackin", "CompTIA A+", "AWS Certified Solutions Architect - Associate", "Amazon AWS", "CompTIA Security+", "Linux", "Kubernetes", "ChatGPT", "Information Security"],
+    category: "IT and Software",
+    Content: ["AWS Certified Cloud Practitioner", "Ethical Hackin", "CompTIA A+", "AWS Certified Solutions Architect - Associate", "Amazon AWS", "CompTIA Security+", "Linux", "Kubernetes", "ChatGPT", "Information Security"],
   },
   {
+    
     category: "Design",
-    content: ["Blender", "Graphic Design", "User Experience Design", "Adobe Photoshop", "3D Modeling", "Figma", "Adobe Illustrator", "Drawing", "AutoCAD", "Canva"],
+    Content: ["Blender", "Graphic Design", "User Experience Design", "Adobe Photoshop", "3D Modeling", "Figma", "Adobe Illustrator", "Drawing", "AutoCAD", "Canva"],
   },
   {
     category: "Marketing",
-    content: ["Digital Marketing", "Social Media Marketing", "Facebook Ads", "Marketing Strategy", "Search Engine Optimization (SEO)", "Google Ads (Adwords)", "Instagram Marketing", "Copywriting", "ChatGPT", "Facebook Marketing"],
+    Content: ["Digital Marketing", "Social Media Marketing", "Facebook Ads", "Marketing Strategy", "Search Engine Optimization (SEO)", "Google Ads (Adwords)", "Instagram Marketing", "Copywriting", "ChatGPT", "Facebook Marketing"],
   },
   {
-    category: "Life Style",
-    content: ["Reiki", "Energy Healing", "Chess", "Watercolor Painting", "Watercolor Painting", "Watercolor Painting", "Hypnotherapy", "Spiritual Healing", "Astrology", "Painting"],
+    category: "Lifestyle",
+    Content: ["Reiki", "Energy Healing", "Chess", "Watercolor Painting", "Watercolor Painting", "Watercolor Painting", "Hypnotherapy", "Spiritual Healing", "Astrology", "Painting"],
   },
   {
     category: "Photography & Video",
-    content: ["Photography", "Adobe Premiere", "DaVinci Resolve", "iPhone Photography", "Video Editing", "Video Production", "Adobe Lightroom", "Adobe After Effects", "Adobe Photoshop", "Filmmaking"],
+    Content: ["Photography", "Adobe Premiere", "DaVinci Resolve", "iPhone Photography", "Video Editing", "Video Production", "Adobe Lightroom", "Adobe After Effects", "Adobe Photoshop", "Filmmaking"],
   },
   {
     category: "Music & Arts",
-    content: ["Guitar", "Music Production", "Singing", "Piano", "Music Theory", "Music Composition", "FL Studio", "DJ", "Logic Pro", "Songwriting"],
+    Content: ["Guitar", "Music Production", "Singing", "Piano", "Music Theory", "Music Composition", "FL Studio", "DJ", "Logic Pro", "Songwriting"],
   },
   {
     category: "Health & Fitness",
-    content: ["Yoga", "Nutrition", "CBT Cognitive Behavioral Therapy", "Meditation", "Massage", "Fitness", "Herbalism", "Qi Gong", "Pilates", "Holistic Medicine"],
+    Content: ["Yoga", "Nutrition", "CBT Cognitive Behavioral Therapy", "Meditation", "Massage", "Fitness", "Herbalism", "Qi Gong", "Pilates", "Holistic Medicine"],
   }
 ];
 
@@ -58,15 +59,17 @@ const CommonUi = () => {
   const location = useLocation();
   // console.log(location)
   const state = location.state.ratings;
-  console.log(state)
+  const state2=location.state.instructor;
+  // console.log(state2)
   const [data, setData] = useState([])
   const [newdata, setNewData] = useState([])
   const [popularTopics2,setPopularTopics2] = useState([])
+  const [popularinstructor,setPopularInstructor] = useState([])
   // https://udemy-backend-tzzj.onrender.com
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://udemy-backend-tzzj.onrender.com/api/alldata');
+        const response = await axios.get('http://localhost:4001/api/alldata');
         setData(response.data);
         // console.log(response.data)
       } catch (error) {
@@ -82,13 +85,20 @@ const CommonUi = () => {
     setNewData(filteredData);
 
   }, [data,params.category]);
+
   useEffect(() => {
     const populartopicsData = PopularTopics.filter((item) => item.category === params.category)
-    // const populartopicsData2 = populartopicsData.content
-     setPopularTopics2(populartopicsData)
-    // console.log(PopularTopics)
+ 
+     setPopularTopics2(populartopicsData[0].Content)
+     const popularinstructionData = state2.filter((item) => item.category === params.category)
+ 
+     setPopularInstructor(popularinstructionData)
+   
   }, [newdata,params.category]);
 
+  const popularTopicsFinal=popularTopics2
+  // console.log( popularTopics2)
+  // console.log(popularinstructor)
   console.log(params)
   return (
     <div className="parent">
@@ -131,6 +141,8 @@ const CommonUi = () => {
               <div className="images-div-prices">
                 <p>{item.latestprice}</p><span className="commonui-dashed-price">{item.oldprice}</span>
               </div>
+              <div className="addtocart-btn"><button className="addtocart">Add to cart</button></div>
+              
             </div>
 
           )
@@ -141,10 +153,9 @@ const CommonUi = () => {
       <div className="popular-instructor-heading"><h2>Popular Topics</h2></div>
       <div className="popular-topics-div-parent">
         {popularTopics2.map((item, index) => {
-          // console.log(item.content)
           return (
             <div className="popular-topics-div" key={index}>
-              <h3>{item.content[index]}</h3>
+              <h3>{item}</h3>
             </div>
           )
 
@@ -154,9 +165,10 @@ const CommonUi = () => {
 
 
       {/*popular Instructors...*/}
-      {/* <div className="popular-instructor-heading"><h2>Popular Instructors</h2></div>
+      <div className="popular-instructor-heading"><h2>Popular Instructors</h2></div>
       <div className="instructor-parent">
-        {props.value3.instructor.map((item, index) => {
+      {  popularinstructor.map((item, index) => {
+        // console.log(item)
           return (
             <div className="instructor-div-inner" key={index}>
 
@@ -166,15 +178,15 @@ const CommonUi = () => {
               <div className="instructor-div-text">
                 <h4> {item.name}</h4>
                 <p>{item.field}</p>
-                <p className="spl-font"><span className="span1">{item.rating.slice(0, 3)}</span>{item.rating.slice(3, 21)}</p>
-                <p className="spl-font"><span>{item.students.slice(0, 9)}</span>{item.students.slice(9, 17)}</p>
-                <p className="spl-font"><span>{item.courses.slice(0, 2)}</span>{item.courses.slice(2, 10)}</p>
+                <p className="spl-font"><span className="span1">{item.rating.slice(0, 3)}</span>{item.rating.slice(3, 26)}</p>
+                <p className="spl-font"><span>{item.students.slice(0, 9)}</span>Students</p>
+                {/* <p className="spl-font"><span>{item.courses.slice(0, 2)}</span>{item.courses.slice(2, 10)}</p> */}
               </div>
 
             </div>
           )
         })}
-      </div> */}
+      </div>
 
       {/* all courses min8*/}
       <div className="popular-instructor-heading all-development-courses-heading"><h2>All Development Courses</h2></div>
@@ -253,6 +265,7 @@ const CommonUi = () => {
           {newdata.slice(5, 8).map((item, index) => {
             return (
               <>
+               <div className="bottom-right-div-outer">
                 <div className="bottom-right-div">
 
                   <img src={item.image} alt="not found" className="bottom-right-div-images" />
@@ -270,6 +283,9 @@ const CommonUi = () => {
                     <p>{item.field}</p>
                     <p className="ratings"><span>{item.Rating.slice(0, 3)}</span>{item.Rating.slice(3, 20)}</p>
                   </div>
+                  
+                </div>
+                <div className="addtocart-btn"><button className="addtocart">Add to cart</button></div>
                 </div>
                 <hr></hr>
               </>
@@ -297,6 +313,7 @@ const CommonUi = () => {
           {newdata.slice(8, 14).map((item, index) => {
             return (
               <>
+               <div className="bottom-right-div-outer">
                 <div className="bottom-right-div">
 
                   <img src={item.image} alt="not found" className="bottom-right-div-images" />
@@ -315,6 +332,8 @@ const CommonUi = () => {
                     <p>{item.field}</p>
                     <p className="ratings"><span>{item.Rating.slice(0, 3)}</span>{item.Rating.slice(3, 20)}</p>
                   </div>
+                </div>
+                <div className="addtocart-btn"><button className="addtocart">Add to cart</button></div>
                 </div>
                 <hr></hr>
               </>
