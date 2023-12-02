@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
-// import "../Register.css"
+ import "./Register.css"
 
 function Register() {
   const navi = useNavigate();
@@ -21,7 +21,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(data);
-    axios.post("https://ecommerce-backend-new.onrender.com/api/register", data)
+    axios.post("https://udemy-backend-tzzj.onrender.com/api/register",data)
       .then((res) => {
         alert(res.data.message);
         console.log("data added")

@@ -19,38 +19,39 @@ const Link = () => {
     'IT and Software',
     'Design',
     'Marketing',
-    'Life Style',
+    'Lifestyle',
     'Photography & Video',
     'Music & Arts',
+    'Health & Fitness'
   ];
 
   const subcategories = [
     {
       cat: 'Development',
-      subcat1: ['web development', 'Data Science', 'Mobile Development'],
+      subcat1: ['web-Development', 'Data Science', 'Mobile-Development','Programming-Languages'],
     },
     {
       cat: 'Business',
-      subcat1: ['web development', 'Data Science', 'Mobile Development'],
+      subcat1: ['Communication', 'Management', 'Business Strategy','Operations','Human Resources'],
     },
     {
       cat: 'Finance and Accounting',
-      subcat1: ['Accounting and Bookkeeping'],
+      subcat1: ['Accounting and Bookkeeping','Compliance','Economics','Finance','Taxes'],
     },
     {
       cat: 'IT and Software',
-      subcat1: ['It Certification', 'Network & Security', 'Hardware', 'Operating system &Servers', 'Other IT & Software'],
+      subcat1: ['It Certification', 'Network and Security', 'Hardware', 'OpeRating System and Servers','Other Software and IT'],
     },
     {
       cat: 'Design',
-      subcat1: ['web Design', 'Game Design', '3D & Animation', 'Fashion Design', 'Other Design'],
+      subcat1: ['Web Design', 'Game Design', '3D and Animation', 'Fashion Design', 'Other Design'],
     },
     {
       cat: 'Marketing',
       subcat1: ['Digital Marketing', 'Social Media Marketing', 'Public Relationship', 'Content Marketing', 'Product Marketing'],
     },
     {
-      cat: 'Life Style',
+      cat: 'Lifestyle',
       subcat1: ['Arts & Crafts', 'Beauty & Makeup', 'Food & Beverage', 'Pet Care & Training', 'Travel'],
     },
     {
@@ -61,6 +62,10 @@ const Link = () => {
       cat: 'Music & Arts',
       subcat1: ['Instruments', 'Music Production', 'Vocal', 'Music Software', 'Music Techniques'],
     },
+    {
+      cat: 'Health & Fitness',
+      subcat1: ['Fitness', 'Sport', 'Yoga','Mental Health','Dance'],
+    }
   ];
 
   // const staticPopularTopics=[

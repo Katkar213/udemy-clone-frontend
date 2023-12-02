@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import "../Authentication.css"
+import "./Login.css"
 // import 'react-toastify/dist/ReactToastify.css';
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ function LogIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://ecommerce-backend-new.onrender.com/api/login", data)
+      .post("https://udemy-backend-tzzj.onrender.com/api/login",data)
       .then((res) => {
        
         alert(res.data.message)
