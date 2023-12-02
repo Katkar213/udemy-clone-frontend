@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Home from '../Components/Home';
 // import Development from '../Components/Development';
 import WebDevelopment from '../Components/WebDevelopment';
+import { IoIosArrowForward } from "react-icons/io";
 import CommonUi from '../Components/CommonUi';
 import LogIn from '../Components/UserAuthentication/Login';
 import Register from '../Components/UserAuthentication/Register';
@@ -28,7 +29,7 @@ const Link = () => {
   const subcategories = [
     {
       cat: 'Development',
-      subcat1: ['web-Development', 'Data Science', 'Mobile-Development','Programming-Languages'],
+      subcat1: ['Web-Development', 'Data Science', 'Mobile-Development','Programming-Languages'],
     },
     {
       cat: 'Business',
@@ -40,7 +41,7 @@ const Link = () => {
     },
     {
       cat: 'IT and Software',
-      subcat1: ['It Certification', 'Network and Security', 'Hardware', 'OpeRating System and Servers','Other Software and IT'],
+      subcat1: ['IT Certification', 'Network and Security', 'Hardware', 'OpeRating System and Servers','Other Software and IT'],
     },
     {
       cat: 'Design',
@@ -164,21 +165,25 @@ const Link = () => {
             </NavLink>
 
             <div className="categories-outer">
+           
               <div className="categories1">
                 {categories.map((item, index) => (
                   <>
+                 <div className="outerlining">
                   <div key={item} className="category-container">
                     <NavLink className="subcategories1" to={`/commonui/${item}`} state={{ratings:staticRatings}}>
-                      {item} <span className="logo-arrow"></span>
+                      {item} <span className="logo-arrow"><IoIosArrowForward /></span>
                     </NavLink>
 
                     <ul className="submenu2">
                       {subcategories[index].subcat1.map((subcatItem) => (
-                       <NavLink to={`/commonui/${subcatItem}`} state={{ratings:staticRatings}}><li key={subcatItem} >{subcatItem}</li></NavLink> 
+                       <NavLink to={`/commonui/${subcatItem}`} state={{ratings:staticRatings}} className="submenu2-links"><li key={subcatItem} >{subcatItem}</li></NavLink> 
                       ))}
                     </ul>
                   </div>
+                  </div>
                   </>))}
+             
               </div>
             </div>
           </div>

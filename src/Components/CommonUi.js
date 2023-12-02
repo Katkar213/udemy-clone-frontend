@@ -62,11 +62,11 @@ const CommonUi = () => {
   const [data, setData] = useState([])
   const [newdata, setNewData] = useState([])
   const [popularTopics2,setPopularTopics2] = useState([])
-
+  // https://udemy-backend-tzzj.onrender.com
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://udemy-backend-tzzj.onrender.com/api/getdata');
+        const response = await axios.get('http://localhost:4001/api/alldata');
         setData(response.data);
         // console.log(response.data)
       } catch (error) {
