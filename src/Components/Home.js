@@ -1,11 +1,14 @@
 import React, {useState,useEffect} from 'react'
 import axios from "axios"
 import "../Components/Home.css"
+import { useDispatch } from 'react-redux';
 import {NavLink} from "react-router-dom"
+import { Increment } from './Redux/Action';
 const Home = () => {
 
   const [data,setData]=useState([])
   const[data2,setData2]=useState()
+  const dispatch=useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,26 +24,28 @@ const Home = () => {
 
 // add to cart.....
 
-  useEffect(()=>{
-    axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
-    .then((res)=>{
-   setData2(res.data)})
-  },[])
 
-const handleCart=async(item)=>{
- const existdata=data2.find((items)=>items.id===item.id)
- console.log(data2)
-  console.log(existdata)
-  if(existdata){
-    alert("data exist");
-  }
-  else{
-    await axios.post("https://udemy-backend-tzzj.onrender.com/api/addToCart",item)
-   
-  }
+useEffect(()=>{
   axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
   .then((res)=>{
  setData2(res.data)})
+},[])
+
+const handleCart=async(item)=>{
+const existdata=data2.find((items)=>items.id===item.id)
+console.log(data2)
+console.log(existdata)
+if(existdata){
+  alert("data exist");
+}
+else{
+  dispatch(Increment())
+  await axios.post("https://udemy-backend-tzzj.onrender.com/api/addToCart",item)
+ 
+}
+axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
+.then((res)=>{
+setData2(res.data)})
 
 }
 
