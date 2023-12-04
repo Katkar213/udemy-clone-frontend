@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://udemy-backend-tzzj.onrender.com/api/alldata');
+        const response = await axios.get('https://udemy-backend-tzzj.onrender.com/api/getdata');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
