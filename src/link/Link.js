@@ -811,7 +811,7 @@ const HandleSearch = async (e) => {
                   <>
                  <div className="outerlining">
                   <div key={item} className="category-container">
-                    <NavLink className="subcategories1" to={`/commonui/${item}`} state={{ratings:staticRatings,instructor:businessPopular_instutor}}>
+                    <NavLink className="subcategories1" to={`/commonui/${item}`} state={{ratings:staticRatings,instructor:businessPopular_instutor,nav:subcategories}}>
                       {item} <span className="logo-arrow"><IoIosArrowForward /></span>
                     </NavLink>
 
@@ -881,7 +881,7 @@ const HandleSearch = async (e) => {
                   <>
                  <div className="outerlining">
                   <div key={item} className="category-container">
-                    <NavLink className="subcategories1" to={`/commonui/${item}`} state={{ratings:staticRatings,instructor:businessPopular_instutor}}>
+                    <NavLink className="subcategories1" to={`/commonui/${item}`} state={{ratings:staticRatings,instructor:businessPopular_instutor,}}>
                       {item} <span className="logo-arrow"><IoIosArrowForward /></span>
                     </NavLink>
 

@@ -28,6 +28,13 @@ justify-content: space-between;
   text-align: center;
   padding:0rem 6.2rem;
 }
+.buy-courses-button{
+    height:6vh;
+    width:10vw;
+    background-color: black;
+    color:white;
+    margin:20px auto;
+}
 .img-parent{
    transition:2s linear; 
 }

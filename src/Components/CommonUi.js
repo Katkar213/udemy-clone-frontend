@@ -308,8 +308,11 @@ const handleCart=async(item)=>{
   // console.log(params)
   const location = useLocation();
   // console.log(location)
+  const state3=location.state;
   const state = location.state.ratings;
   const state2 = location.state.instructor;
+  
+  console.log(state3)
   // console.log(state2)
   const [data, setData] = useState([])
   const [newdata, setNewData] = useState([])
@@ -352,7 +355,9 @@ const handleCart=async(item)=>{
   console.log(params)
   return (
     <div className="parent">
-
+{/* <div className="dynamic-navbar">
+  hello
+</div> */}
 
       {/* titles...*/}
 

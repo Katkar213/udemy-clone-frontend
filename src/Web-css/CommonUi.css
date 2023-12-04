@@ -367,9 +367,18 @@ padding:5px;
 .bottom-right-div-outer:hover .addtocart-btn{
     display:block;
 }
+.dynamic-navbar{
+   min-width:80vw;
+    min-height:8vh;
+    border:2px solid black;
+    display:flex;
+    justify-content: space-between;
+}
 
 @media screen and (max-width:500px) and (min-width:280px){
-
+.dynamic-navbar{
+    display:none
+}
     .images-div-parent{
         flex-direction: column;
     }

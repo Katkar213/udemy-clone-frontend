@@ -264,9 +264,9 @@ const makePayment=async ()=>{
           headers:headers,
           body:JSON.stringify(body)
   })
-  await axios.post("http://localhost:4001/api/pushlearningdata",data)
+  await axios.post("https://udemy-backend-tzzj.onrender.com/api/pushlearningdata",data)
 
-  await axios.delete("http://localhost:4001/api/deletedata")
+  await axios.delete("https://udemy-backend-tzzj.onrender.com/api/deletedata")
   const session= await response.json();
 
   const result =stripe.redirectToCheckout({
@@ -304,7 +304,7 @@ const makePayment=async ()=>{
         })}
       </div>
 <hr></hr>
-<button onClick={makePayment}>Buy Courses</button>
+<button onClick={makePayment} className="buy-courses-button">Buy Courses</button>
 
 
 
