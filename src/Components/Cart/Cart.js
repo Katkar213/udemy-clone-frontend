@@ -192,7 +192,7 @@ const Cart = () => {
 const[data,setData]=useState([])
 
 useEffect(()=>{
- axios.get("http://localhost:4001/api/getcartdata")
+ axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
  .then((res)=>{
 setData(res.data)
 // console.log(data)
@@ -201,10 +201,10 @@ setData(res.data)
 
 
 const handleremove=async(itemId)=>{
-await axios.post("http://localhost:4001/api/removeitem",({id:itemId}))
+await axios.post("https://udemy-backend-tzzj.onrender.com/api/removeitem",({id:itemId}))
 .then((res)=>console.log(res.data))
 
-await axios.get("http://localhost:4001/api/getcartdata").then((res)=>{
+await axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata").then((res)=>{
     setData(res.data)
 })
 }
@@ -259,7 +259,7 @@ const makePayment=async ()=>{
   const headers={
     "Content-Type":"application/json"
   }
-  const response = await fetch("http://localhost:4001/checkout",{
+  const response = await fetch("https://udemy-backend-tzzj.onrender.com/checkout",{
           method:"POST",
           headers:headers,
           body:JSON.stringify(body)

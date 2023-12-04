@@ -7,7 +7,7 @@ const MyLearning = () => {
 const[data,setData]=useState([])
 
 useEffect(()=>{
-    axios.get("http://localhost:4001/api/getlearningdata")
+    axios.get("https://udemy-backend-tzzj.onrender.com/api/getlearningdata")
     .then((res)=>setData(res.data))
     // console.log(data)
 })

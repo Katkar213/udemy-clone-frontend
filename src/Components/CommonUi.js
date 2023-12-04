@@ -274,7 +274,7 @@ const CommonUi = () => {
 
 
   useEffect(()=>{
-    axios.get("http://localhost:4001/api/getcartdata")
+    axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
     .then((res)=>{
    setData2(res.data)})
   },[])
@@ -287,10 +287,10 @@ const handleCart=async(item)=>{
     alert("data exist");
   }
   else{
-    await axios.post("http://localhost:4001/api/addToCart",item)
+    await axios.post("https://udemy-backend-tzzj.onrender.com/api/addToCart",item)
    
   }
-  axios.get("http://localhost:4001/api/getcartdata")
+  axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
   .then((res)=>{
  setData2(res.data)})
 
@@ -319,7 +319,7 @@ const handleCart=async(item)=>{
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4001/api/alldata');
+        const response = await axios.get('https://udemy-backend-tzzj.onrender.com/api/alldata');
         setData(response.data);
         // console.log(response.data)
       } catch (error) {
