@@ -419,6 +419,122 @@ height:auto;
 /* tab.... */
 
 @media screen and (max-width:1050px) and (min-width:501px){
+  footer{
+    flex-direction: column;
+  }
+ 
+  .footer-upper-div{
+    flex-direction: column;
+  }
+  .footer-navlink-div-parent{
+    flex-direction: column;
+    width:90vw;
+   
+  }
+  .footer-navlink-div1{
+    width:90vw;
+    text-align: center;
+  }
+  .searchbar{
+height:auto;
+  }
+  .searchbarinput{
+    font-size:12px;
+  }
+  .Udemyimage{
+    height:8vh;
+    width:16vw;
+  }
+  .loginbtn{
+    display: none;
+  }
+  .signupbtn{
+    display: none;
+  }
+  .globe{
+    display: none;
+  }
+
+  .hamberger{
+    display:block;
+  }
+  .Udemyimage{
+    display:none;
+  }
+  .categories{
+    display: none;
+  }
+  .techudemy{
+  display: none;
+  }
+  .mobile-hamberger{
+    display:block;
+    position:absolute;
+    top:8vh;
+    min-width:65vw;
+    min-height: 70vh;
+    box-shadow: 0px 0px 5px black;
+    left:0;
+    z-index: 45;
+    background-color: #fff;
+  }
+
+
+  .cross{
+    box-shadow: 0px 0px 5px black;
+    position: absolute;
+    left:17rem;
+    height:40px;
+    width:40px;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: white;
+    outline: none;
+    border:none;
+  }
+  .hamberger-categories{
+    width:70vw;
+  }
+  .subcategories1{
+    width:50vw;
+  }
+  .category-container{
+    width:auto;
+  }
+  .outerlining{
+    width:auto;
+  }
+  .submenu2{
+    left:0%;
+    width:70vw;
+    top:4.5rem;
+    height:59vh;
+
+  }
+  .mobile-hamberger-userlogin{
+    display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  }
+  .logo-outline{
+    display:none;
+  }
+  .user-inner-details{
+    min-height: 10vh;
+  }
+  .logoutbtn{
+    width:40vw;
+    margin-top: 10px;
+  }
+  .mobile-hamberger-userlogin{
+    min-height: 9vh;
+    padding-top:20px;
+  }
+  .mobile-hamberger-userlogin a{
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+  }
   .footer-right-side-div{
     width:14vw;
   }
