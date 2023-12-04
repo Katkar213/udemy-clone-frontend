@@ -431,3 +431,221 @@ height:6vh;
   margin-top: 10px;
 }
 
+@media screen and (min-width:280px) and (max-width:500px){
+  .mainimage-text{
+    display:none;
+  }
+  .selectionofcourses-navlinks{
+    display: none;
+  }
+  .home-careeropportunities-4div{
+    flex-direction: column;
+  }
+  .home-Comments-parent{
+    flex-direction: column;
+  }
+  .feature-topics-by-categories-text-parent{
+    height:auto;
+    flex-wrap: wrap;
+  }
+  .feature-topics-by-categories-text{
+    margin-top: 20px;
+  }
+  .explore-more-btn{
+    width:88vw;
+  }
+  .udemy-business-parent{
+    flex-direction: column;
+  }
+  .udemy-business-rightdiv{
+height:auto;
+width:auto;
+
+margin: auto;
+margin-top: 20px;
+  }
+  .udemy-business-rightdiv img{
+    width:80vw;
+    height:50vh;
+    margin: auto;
+  }
+  .udemy-business-leftdiv{
+width:auto;
+margin: auto;
+text-align: center;
+  }
+  .get-udemy-business-btn{
+    width:30vw;
+  }
+  .learn-more-btn{
+    width:30vw;
+  }
+  .principal-div-parent{
+    flex-direction: column;
+    width:auto;
+    margin: auto;
+  }
+  .principal-div-leftside{
+    width:60vw;
+  }
+  .principal-div-leftside{
+    text-align: center;
+    margin: auto;
+  }
+  .principal-div-rightside{
+    width:auto;
+  }
+  .instructor-div{
+    width:auto;
+    flex-direction: column;
+  }
+  .instructor-div-rightside{
+    height:auto;
+  }
+  .instructor-div-leftside{
+    width: auto;
+  }
+  .instructor-div-rightside{
+    width: auto;
+    text-align: center;
+  }
+  .start-teaching-today-btn{
+    width:60vw;
+    margin-bottom: 20px;
+  }
+  .Udemyimage1{
+    width:20vw;
+    height:10vh;
+  }
+  .udemy-business-leftdiv-1{
+    justify-content: space-between;
+  }
+  .home-Comments{
+    width:auto;
+    margin-top: 20px;
+  }
+  .home-careeropportunities-div{
+    margin: auto;
+    width:70vw;
+    text-align: center;
+  }
+  .home-careeropportunities-description{
+    width:70vw;
+  }
+  .home-careeropportunities-text{
+    text-align: center;
+  }
+  .explorepython-btn{
+    width:50vw;
+  }
+  .mainimage img{
+    width:99.4vw;
+  }
+  .mainimage {
+    width:auto;
+  }
+  .top-categories{
+    flex-direction: column;
+  }
+  .top-categories-div{
+    width:auto;
+    text-align: center;
+  }
+}
+
+
+@media screen and (min-width:501px) and (max-width:1050px){
+  .mainimage img{
+    width:99.4vw;
+  }
+  .mainimage {
+    width:auto;
+  }
+  .mainimage-text{
+    display:none;
+  }
+  .home-careeropportunities-text{
+    text-align: center;
+    margin: auto;
+  }
+.home-careeropportunities-description{
+  width: auto;
+  text-align: center;
+}
+.explorepython-btn{
+  width:50vw;
+}
+.home-careeropportunities-4div{
+  width:80vw;
+  height: auto;
+  flex-wrap: wrap;
+}
+.home-careeropportunities-div{
+width:38vw;
+}
+ .home-Comments{
+  width:auto;
+  margin-top: 20px;
+  height: auto;
+}
+.home-Comments-parent{
+  flex-direction: column;
+}
+.top-categories-image{
+  width:25vw;
+  height:15vh;
+ 
+}
+.top-categories-div{
+  height: auto;
+  width: auto;
+}
+.top-categories{
+  flex-wrap: wrap;
+}
+.udemy-business-rightdiv{
+  height:auto;
+  width:auto;
+}
+.udemy-business-rightdiv img{
+  width:40vw;
+}
+.get-udemy-business-btn{
+  width:30vw;
+}
+.learn-more-btn{
+  width:30vw;
+}
+.udemy-business-parent{
+  width:auto;
+}
+.instructor-div{
+  width:auto;
+}
+.instructor-div-leftside{
+  width:auto;
+}
+.instructor-div-rightside{
+width:auto;
+}
+.start-teaching-today-btn{
+  width:30vw;
+}
+.top-categories{
+  width:85vw;
+  height: auto;
+  flex-wrap: wrap;
+}
+}
+@media screen and (min-width:810px){
+  .mainimage img{
+    width:97vw;
+  }
+}
+@media screen and (min-width:1060px){ 
+ 
+    .mainimage img{
+      width:85vw;
+    height:60vh;
+    }
+}

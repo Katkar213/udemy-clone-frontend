@@ -25,6 +25,8 @@ function LogIn() {
         setData(res.data);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("name",res.data.name);
+        // localStorage.setItem("email",res.data.email)
+        console.log(res.data)
         if (res.data.token) {
           navigate("/");
         } else {

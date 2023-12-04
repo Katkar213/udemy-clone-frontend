@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Home from '../Components/Home';
+
 import Tech from '../Components/Tech';
 // import Development from '../Components/Development';
 import WebDevelopment from '../Components/WebDevelopment';
@@ -9,9 +10,59 @@ import { IoIosArrowForward } from "react-icons/io";
 import CommonUi from '../Components/CommonUi';
 import LogIn from '../Components/UserAuthentication/Login';
 import Register from '../Components/UserAuthentication/Register';
+import { FaBars } from "react-icons/fa6";
 import '../App.css'; // Import your CSS file
+import Cart from '../Components/Cart/Cart';
+import MyLearning from '../Components/MyLearning';
+import axios from "axios"
+import SearchProduct from '../Components/SearchProduct';
 
 const Link = () => {
+  const [query, setQuery] = useState("");
+  const[name,setName]=useState("");
+  const[email,setEmail]=useState("");
+  const token=localStorage.getItem("name")
+  const emailtoken=localStorage.getItem("email")
+  const[open,setOpen]=useState(false)
+  const [results, setResults] = useState([]);
+ 
+
+// console.log(name)
+  useEffect(()=>{
+    setName(token)
+  },[token])
+
+
+  useEffect(()=>{
+setEmail(emailtoken)
+  },[emailtoken])
+
+ 
+  // console.log(name)
+const handlelogout=()=>{
+  setName("")
+  localStorage.removeItem("name")
+  localStorage.removeItem("token")
+  localStorage.removeItem("email")
+ 
+}
+const handleopen=()=>{
+  setOpen(!open)
+}
+
+const HandleSearch = async (e) => {
+  const inputValue = e.target.value;
+  setQuery(inputValue);
+
+  try {
+    // console.log("trying..")
+    const response=await axios.get(`https://ecommerce-backend-new.onrender.com/api/search?category=${inputValue}`);
+    setResults(response.data);
+    // console.log(results)
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
 
   const businessPopular_instutor = [
     {
@@ -734,6 +785,86 @@ const Link = () => {
     <div>
       <BrowserRouter>
         <div className="Navbar">
+
+        <FaBars className="hamberger" onClick={handleopen}/>
+
+
+        {/* mobile menu hamberger */}
+        
+        <div className={open?"mobile-hamberger":"hide"}>
+        <button className="cross" onClick={handleopen}>x</button>
+
+          {name?  <div>
+          <div className="user-inner-details">
+    <div className="userlogo innerlogo">
+     {name.slice(0,1)}
+     </div>
+     
+     <div className="user-inner-details-text">
+      <h3>{token}</h3>
+      <p>{email}</p>
+     </div>
+    </div>
+<hr></hr>
+    <div className="hamberger-categories">
+                {categories.map((item, index) => (
+                  <>
+                 <div className="outerlining">
+                  <div key={item} className="category-container">
+                    <NavLink className="subcategories1" to={`/commonui/${item}`} state={{ratings:staticRatings,instructor:businessPopular_instutor}}>
+                      {item} <span className="logo-arrow"><IoIosArrowForward /></span>
+                    </NavLink>
+
+                    <ul className="submenu2">
+                      {subcategories[index].subcat1.map((subcatItem) => (
+                       <NavLink to={`/commonui/${subcatItem}`} state={{ratings:staticRatings,instructor:businessPopular_instutor}} className="submenu2-links" onClick={handleopen}><li key={subcatItem} >{subcatItem}</li></NavLink> 
+                      ))}
+                    </ul>
+                  </div>
+                  </div>
+                  </>))}
+             
+              </div>
+              <button onClick={handlelogout} className="logoutbtn"><p>Log Out</p></button>
+              
+    </div>
+    
+    
+    
+    : <div>
+      <div className="mobile-hamberger-userlogin">
+    <NavLink to="/login" onClick={handleopen}><p>Login </p></NavLink>
+    <NavLink to="/register" onClick={handleopen}><p>signup</p></NavLink>
+    </div>
+    <hr></hr>
+   
+   <div className="hamberger-categories">
+                {categories.map((item, index) => (
+                  <>
+                 <div className="outerlining">
+                  <div key={item} className="category-container">
+                    <NavLink className="subcategories1" to={`/commonui/${item}`} state={{ratings:staticRatings,instructor:businessPopular_instutor}}>
+                      {item} <span className="logo-arrow"><IoIosArrowForward /></span>
+                    </NavLink>
+
+                    <ul className="submenu2">
+                      {subcategories[index].subcat1.map((subcatItem) => (
+                       <NavLink to={`/commonui/${subcatItem}`} state={{ratings:staticRatings,instructor:businessPopular_instutor}} className="submenu2-links" onClick={handleopen}><li key={subcatItem} >{subcatItem}</li></NavLink> 
+                      ))}
+                    </ul>
+                  </div>
+                  </div>
+                  </>))}
+             
+              </div>
+            
+    </div>
+    }
+        </div>
+        
+        {/* web view navbar */}
+
+          
           <NavLink to="/">
             <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" alt="not found" className="Udemyimage" />
           </NavLink>
@@ -768,18 +899,54 @@ const Link = () => {
           </div>
 
           <div className="searchbar">
-            <i className="fa-solid fa-magnifying-glass"></i> <input type="text" className="searchbarinput" placeholder="search here" />
+          <NavLink to="/searchproduct" state={[results]}> <i className="fa-solid fa-magnifying-glass"> </i></NavLink> <input type="text" className="searchbarinput" placeholder="search here" value={query}  onChange={HandleSearch}/>
           </div>
 
-          <NavLink to="/tech" className="navlinknames">
+          <NavLink to="/tech" className="navlinknames techudemy">
             Teach on Udemy
           </NavLink>
-          <NavLink to="cart" className="cart">
+
+
+          <NavLink to="/cart" className="cart">
             <i className="fa-solid fa-cart-shopping"></i>
           </NavLink>
 
+          {/* token ternery... */}
+       { (name)?
+       <div className="logo-outline">
+  <div className="userlogo">
+     {name.slice(0,1)}
+     </div>
+<div className="logo-outline2">
+  <div className="userdatails">
+
+    <div className="user-inner-details">
+    <div className="userlogo innerlogo">
+     {name.slice(0,1)}
+     </div>
+     <div className="user-inner-details-text">
+      <h3>{token}</h3>
+      <p>{email}</p>
+     </div>
+    </div>
+
+    <hr></hr>
+    <div className="user-inner-details2">
+    <button onClick={handlelogout} className="logoutbtn"><p>Log Out</p></button>
+  <NavLink to="/mylearning"><p>My Learning</p></NavLink>
+  <p>Cart</p>
+    </div>
+
+  </div>
+</div>
+  </div>
+       :
+      //  login....
+<div className="login-sinup-btn">
 <NavLink to="/login"><button className="btn loginbtn">Log in</button></NavLink>
 <NavLink to="/register"><button className="btn signupbtn">Sign up</button></NavLink>
+</div>}
+
           
           
           <i className="fa-solid fa-globe"></i>
@@ -787,10 +954,13 @@ const Link = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/businesscategories" element={''}></Route>
+          <Route path="/mylearning" element={<MyLearning/>}></Route>
           <Route path="/login" element={<LogIn/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/tech" element={<Tech/>} />
+          <Route path="/cart" element={<Cart/>} />
+          <Route path="/searchproduct" element={<SearchProduct/>}></Route>
+
           <Route path="/commonui/:category" element={<CommonUi/>}/>
           {/* <Route path="/commonui/:category" element={<Development />} /> */}
           <Route path="web development" element={<WebDevelopment />} />

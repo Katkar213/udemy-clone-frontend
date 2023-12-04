@@ -109,7 +109,7 @@ const Home = () => {
  </div>
  <hr></hr>
  <div className="home-Comments-links">
- <div className="home-Comments-links-logo"><i class="fa-solid fa-circle-play "></i></div> 
+ <div className="home-Comments-links-logo"><i className="fa-solid fa-circle-play "></i></div> 
   <div className="home-Comments-links-text">[NEW] Ultimate AWS Certified Cloud Practitioner - 2022</div>
  </div >
   </div>
@@ -123,7 +123,7 @@ const Home = () => {
   </div>
  <hr></hr>
  <div className="home-Comments-links">
- <div className="home-Comments-links-logo"><i class="fa-solid fa-circle-play "></i></div> 
+ <div className="home-Comments-links-logo"><i className="fa-solid fa-circle-play "></i></div> 
   <div className="home-Comments-links-text">Become a Product Manager | Learn the Skills & Get the Job</div>
  </div >
   </div>
@@ -137,7 +137,7 @@ const Home = () => {
   </div>
  <hr></hr>
  <div className="home-Comments-links">
- <div className="home-Comments-links-logo"><i class="fa-solid fa-circle-play "></i></div> 
+ <div className="home-Comments-links-logo"><i className="fa-solid fa-circle-play "></i></div> 
   <div className="home-Comments-links-text">Leadership: Practical Leadership Skills</div>
  </div >
   </div>
@@ -150,9 +150,9 @@ const Home = () => {
   <div className="name-shortform"><div className="name-shortform-logo" >WA</div><span>Will A</span></div>
   </div>
  <hr></hr>
-<div/>
+{/* <div/> */}
  <div className="home-Comments-links">
- <div className="home-Comments-links-logo"><i class="fa-solid fa-circle-play "></i></div> 
+ <div className="home-Comments-links-logo"><i className="fa-solid fa-circle-play "></i></div> 
   <div className="home-Comments-links-text">[NEW] Ultimate AWS Certified Cloud Practitioner - 2022</div>
  </div >
   

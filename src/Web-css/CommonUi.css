@@ -344,17 +344,206 @@ padding:5px;
     width:8vw;
     background-color: blueviolet;
     color:white;
+   
     font-size: 18px;
 
 }
 .addtocart-btn{
     text-align: center;
+    position: absolute;
     display: none;
+    float: right;
+   
+}
+.image-div{
+    position: relative;
 }
 .images-div:hover .addtocart-btn{
     display:block;
 }
+/* .bottom-right-div-outer{
+    position: relative;
+} */
 .bottom-right-div-outer:hover .addtocart-btn{
     display:block;
+}
+
+@media screen and (max-width:500px) and (min-width:280px){
+
+    .images-div-parent{
+        flex-direction: column;
+    }
+    .images-div{
+        width:90vw;
+    }
+    .images-div-image{
+        height:40vh;
+    }
+    .popular-topics-div-parent{
+        flex-direction: column;
+        gap:10px;
+       
+    }
+    .popular-topics-div{
+        width:80vw;
+        margin: auto;
+       
+    }
+    .popular-instructor-heading{
+        text-align: center;
+    }
+    .instructor-parent{
+        flex-direction: column;
+        gap:10px;
+    }
+    .instructor-div-inner{
+        width:70vw;
+       flex-direction: column;
+    }
+    .instructor-div-text{
+        width:70vw;
+        text-align: center;
+    }
+    .filter-sortby{
+        width:40vw;
+    }
+    .filter-div{
+        width:18vw;
+        text-align: center;
+        height:10vh;
+    }
+    .sort-results{
+        width:30vw;
+        height:10vh;
+    }
+  
+    .bottom-div-parent-left{
+        display: none;
+    }
+    .bottom-right-div{
+        flex-direction: column;
+    }
+    .bottom-right-div-images{
+        width:80vw;
+        height:30vh;
+        margin: auto;
+    }
+    .bottom-right-div{
+        width:80vw;
+    }
+    .bottom-right-div-text{
+        width:80vw;
+    }
+    .imagetitle-des-price{
+        width:80vw;
+    }
+    .bottom-right-div-sponsors{
+        flex-direction: column;
+        width:80vw;
+        margin: auto;
+    }
+    .bottom-right-div-sponsors-div1{
+        /* border: 2px solid black; */
+        width:70vw;
+    }
+  
+    .bottom-right-div-sponsors-div2 {
+        /* border: 2px solid black; */
+        width:70vw;
+    }
+    .try-udemy-business-btn {
+        width:30vw;
+    }
+    .bottom-right-div-sponsors-div3{
+        width:70vw;
+        /* border: 2px solid black; */
+        text-align: center;
+
+    }
+    .bottom-right-div-sponsors{
+margin-top: 20px;
+
+    }
+    .bottom-div-parent-right{
+        width:auto;
+        margin: auto;
+    }
+.addtocart-btn{
+    width:50vw;
+}
+
+}
+/* tab view..... */
+
+@media screen and (max-width:1050px) and (min-width:503px){
+
+.bottom-div-parent-left{
+    display:none;
+}
+.bottom-right-div{
+    width:85vw;
+}
+.imagetitle-des-price{
+    width:70vw;
+}
+.bottom-right-div-text{
+width:75vw;
+}
+.bottom-right-div-images{
+    height:18vw;
+}
+.bottom-div-parent-right{
+    width:auto;
+}
+.ratings {
+    font-size: 10px;
+}
+.images-div-image{
+    height:13vh;
+}
+.images-div-title{
+    font-size: 12px;
+}
+.popular-topics-div{
+    height:5vh;
+    width:20vw;
+}
+.popular-topics-div{
+    font-size: 12px;
+}
+.instructor-parent{
+    height:auto;
+    flex-wrap: wrap;
+}
+.instructor-div-inner{
+   
+    flex-direction: column;
+
+}
+.instructor-div-text{
+    width:20vw;
+}
+.instructor-div-text h4{
+    font-size: 13px;
+}
+.filter-div{
+    width:10vw;
+    height:7vh;
+}
+.sort-results{
+    width:14vw;
+    height:7vh;
+}
+
+
+.popular-topics-div-parent{
+    height: auto;
+    justify-content: space-evenly;
+}
+.addtocart-btn{
+    width:50vw;
+}
+
+
 }
 
