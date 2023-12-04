@@ -60,7 +60,7 @@ const HandleSearch = async (e) => {
 };
 
 useEffect(()=>{
-  axios.get(`http://localhost:4001/api/search?category=${querydata}`)
+  axios.get(`https://udemy-backend-tzzj.onrender.com/api/search?category=${querydata}`)
   .then((res)=>setResults(res.data))
   
 
