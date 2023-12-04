@@ -18,7 +18,7 @@ import axios from "axios"
 import SearchProduct from '../Components/SearchProduct';
 
 const Link = () => {
-  const [query, setQuery] = useState("");
+  const [querydata, setQueryData] = useState("");
   const[name,setName]=useState("");
   const[email,setEmail]=useState("");
   const token=localStorage.getItem("name")
@@ -52,17 +52,22 @@ const handleopen=()=>{
 
 const HandleSearch = async (e) => {
   const inputValue = e.target.value;
-  setQuery(inputValue);
-
-  try {
-    // console.log("trying..")
-    const response=await axios.get(`https://ecommerce-backend-new.onrender.com/api/search?category=${inputValue}`);
-    setResults(response.data);
-    // console.log(results)
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
+  setQueryData(inputValue);
+  // console.log(query)
+   
 };
+
+useEffect(()=>{
+  axios.get(`http://localhost:4001/api/search?category=${querydata}`)
+  .then((res)=>setResults(res.data))
+  
+
+},[results,querydata])
+
+const search=()=>{
+  console.log(results)
+}
+
 
   const businessPopular_instutor = [
     {
@@ -899,7 +904,7 @@ const HandleSearch = async (e) => {
           </div>
 
           <div className="searchbar">
-          <NavLink to="/searchproduct" state={[results]}> <i className="fa-solid fa-magnifying-glass"> </i></NavLink> <input type="text" className="searchbarinput" placeholder="search here" value={query}  onChange={HandleSearch}/>
+          <NavLink to="/searchproduct" state={results} > <i onClick={search} className="fa-solid fa-magnifying-glass"> </i></NavLink> <input type="text" className="searchbarinput" placeholder="search here" value={querydata}  onChange={HandleSearch}/>
           </div>
 
           <NavLink to="/tech" className="navlinknames techudemy">
