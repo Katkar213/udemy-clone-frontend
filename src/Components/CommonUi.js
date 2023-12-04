@@ -327,7 +327,7 @@ const handleCart=async(item)=>{
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://udemy-backend-tzzj.onrender.com/api/alldata');
+        const response = await axios.get('https://udemy-backend-tzzj.onrender.com/api/getdata');
         setData(response.data);
         // console.log(response.data)
       } catch (error) {
