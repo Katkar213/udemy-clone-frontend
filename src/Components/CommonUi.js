@@ -7,6 +7,8 @@ import { FaRegCircle } from "react-icons/fa";
 import { IoIosArrowUp } from "react-icons/io";
 import { FaRegSquare } from "react-icons/fa";
 import { NavLink, useParams, useLocation } from "react-router-dom"
+import {Increment} from './Redux/Action';
+import { useDispatch } from 'react-redux';
 
 const PopularTopics = [
   {
@@ -269,6 +271,8 @@ const PopularTopics = [
 
 
 const CommonUi = () => {
+
+  const dispatch=useDispatch();
   const[data2,setData2]=useState()
   // const userid=localStorage.getItem("userId");
 
@@ -287,6 +291,7 @@ const handleCart=async(item)=>{
     alert("data exist");
   }
   else{
+    dispatch(Increment())
     await axios.post("https://udemy-backend-tzzj.onrender.com/api/addToCart",item)
    
   }
@@ -308,11 +313,11 @@ const handleCart=async(item)=>{
   // console.log(params)
   const location = useLocation();
   // console.log(location)
-  const state3=location.state;
+  // const state3=location.state;
   const state = location.state.ratings;
   const state2 = location.state.instructor;
   
-  console.log(state3)
+  // console.log(state3)
   // console.log(state2)
   const [data, setData] = useState([])
   const [newdata, setNewData] = useState([])
@@ -352,7 +357,7 @@ const handleCart=async(item)=>{
   
   // console.log( popularTopics2)
   // console.log(popularinstructor)
-  console.log(params)
+  // console.log(params)
   return (
     <div className="parent">
 {/* <div className="dynamic-navbar">

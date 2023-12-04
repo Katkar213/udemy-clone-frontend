@@ -6,6 +6,10 @@
   padding:0px;
   box-sizing: border-box;
 }
+.count{
+  text-decoration: none;
+  font-size: 20px;
+}
 .Navbar{
   padding:10px 0px;
   display:flex;
@@ -301,6 +305,9 @@ background-color: transparent;
   footer{
     flex-direction: column;
   }
+  .count{
+    text-decoration: none;
+  }
  
   .footer-upper-div{
     flex-direction: column;
@@ -421,6 +428,10 @@ height:auto;
 @media screen and (max-width:1050px) and (min-width:501px){
   footer{
     flex-direction: column;
+  }
+  .count{
+    text-decoration: none;
+
   }
  
   .footer-upper-div{

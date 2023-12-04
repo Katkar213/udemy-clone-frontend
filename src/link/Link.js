@@ -16,6 +16,7 @@ import Cart from '../Components/Cart/Cart';
 import MyLearning from '../Components/MyLearning';
 import axios from "axios"
 import SearchProduct from '../Components/SearchProduct';
+import { useSelector } from 'react-redux';
 
 const Link = () => {
   const [querydata, setQueryData] = useState("");
@@ -26,7 +27,8 @@ const Link = () => {
   const[open,setOpen]=useState(false)
   const [results, setResults] = useState([]);
  
-
+const select=useSelector((state)=>state.Cart)
+console.log(select)
 // console.log(name)
   useEffect(()=>{
     setName(token)
@@ -914,7 +916,7 @@ const search=()=>{
 
           <NavLink to="/cart" className="cart">
             <i className="fa-solid fa-cart-shopping"></i>
-          </NavLink>
+          </NavLink><span className="count">{select}</span>
 
           {/* token ternery... */}
        { (name)?

@@ -102,6 +102,16 @@ margin: auto;
 width:32vh;
 /* border:2px solid yellow; */
 }
+.home-addtocart{
+  height:6vh;
+  width:10vw;
+  visibility: hidden;
+  background-color: blueviolet;
+}
+.home-careeropportunities-div:hover .home-addtocart{
+visibility: visible;
+}
+
 .home-careeropportunities-div-image{
   /* border:2px solid brown; */
   border:1px solid lightgray;
@@ -435,6 +445,10 @@ height:6vh;
   .mainimage-text{
     display:none;
   }
+  .home-addtocart{
+width:50vw;
+  }
+
   .selectionofcourses-navlinks{
     display: none;
   }
@@ -561,6 +575,9 @@ text-align: center;
   .mainimage {
     width:auto;
   }
+  .home-addtocart{
+    width:30vw;
+      }
   .mainimage-text{
     display:none;
   }

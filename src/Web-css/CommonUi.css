@@ -125,7 +125,7 @@
 }
 .popular-instructor-heading{
     text-align: left;
-    margin: 30px 0px;
+    margin: 50px 0px;
     /* border: 2px solid yellow; */
 }
 .spl-font{
@@ -382,8 +382,12 @@ padding:5px;
     .images-div-parent{
         flex-direction: column;
     }
+    .addtocart{
+        width:40vw;
+    }
     .images-div{
         width:90vw;
+        margin-top: 42px;
     }
     .images-div-image{
         height:40vh;
@@ -400,6 +404,7 @@ padding:5px;
     }
     .popular-instructor-heading{
         text-align: center;
+        margin-top: 30px;
     }
     .instructor-parent{
         flex-direction: column;
@@ -489,6 +494,12 @@ margin-top: 20px;
 .bottom-div-parent-left{
     display:none;
 }
+.addtocart {
+    width:auto;
+}
+.images-div-prices {
+    padding:0;
+}
 .bottom-right-div{
     width:85vw;
 }
@@ -549,9 +560,7 @@ width:75vw;
     height: auto;
     justify-content: space-evenly;
 }
-.addtocart-btn{
-    width:50vw;
-}
+
 
 
 }

@@ -1,7 +1,53 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import axios from "axios"
 import "../Components/Home.css"
 import {NavLink} from "react-router-dom"
 const Home = () => {
+
+  const [data,setData]=useState([])
+  const[data2,setData2]=useState()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:4001/api/alldata');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, []);
+
+// add to cart.....
+
+  useEffect(()=>{
+    axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
+    .then((res)=>{
+   setData2(res.data)})
+  },[])
+
+const handleCart=async(item)=>{
+ const existdata=data2.find((items)=>items.id===item.id)
+ console.log(data2)
+  console.log(existdata)
+  if(existdata){
+    alert("data exist");
+  }
+  else{
+    await axios.post("https://udemy-backend-tzzj.onrender.com/api/addToCart",item)
+   
+  }
+  axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
+  .then((res)=>{
+ setData2(res.data)})
+
+}
+
+
+
+
+
   return (
     <div>
         <div className="mainimage"><img src="https://img-c.udemycdn.com/notices/web_carousel_slide/image_responsive/3cb2dd4f-0371-4567-b937-69558b86aeef.jpg" alt="not found"/>
@@ -52,46 +98,25 @@ const Home = () => {
    </div>
 
    <div className="home-careeropportunities-4div">
-    <div className="home-careeropportunities-div" >
-      <img className="home-careeropportunities-div-image" src="https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg" alt="not found"/>
-      <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
-     <p>JOse Portilla</p>
-     <p>Ratings</p>
-     <div className="home-careeropportunities-div-price">
-     <p>₹389</p><span className="dashed-price">₹3199</span>
-     </div>
-    </div>
+    {data.filter((item)=>item.category==="Home").map((item,index)=>{
+      return(
+        <div className="home-careeropportunities-div"  key={index}>
+        <img className="home-careeropportunities-div-image" src={item.image} alt="not found"/>
+        <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
+       <p>{item.field}</p>
+       <p>{item.Rating}</p>
+       <div className="home-careeropportunities-div-price">
+       <p>{item.latestprice}</p><span className="dashed-price">{item.oldprice}</span>
+       </div>
+       <div><button className="home-addtocart" onClick={()=>handleCart(item)}>Add to cart</button></div>
+      </div>
+      )
+      
 
-    <div className="home-careeropportunities-div" >
-    <img className="home-careeropportunities-div-image" src="https://img-c.udemycdn.com/course/240x135/543600_64d1_4.jpg" alt="not found"/>
-      <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
-     <p>JOse Portilla</p>
-     <p>Ratings</p>
-     <div className="home-careeropportunities-div-price">
-     <p>₹389</p><span className="dashed-price">₹3199</span>
-     </div>
-    </div>
-
-    <div className="home-careeropportunities-div" >
-    <img className="home-careeropportunities-div-image" src="https://img-c.udemycdn.com/course/240x135/2776760_f176_10.jpg" alt="not found"/>
-      <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
-     <p>JOse Portilla</p>
-     <p>Ratings</p>
-     <div className="home-careeropportunities-div-price">
-     <p>₹389</p><span className="dashed-price">₹3199</span>
-     </div>
-    </div>
-
-    <div className="home-careeropportunities-div" >
-    <img className="home-careeropportunities-div-image" src="https://img-c.udemycdn.com/course/240x135/950390_270f_3.jpg" alt="not found"/>
-      <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
-     <p>JOse Portilla</p>
-     <p>Ratings</p>
-     <div className="home-careeropportunities-div-price">
-     <p>₹389</p><span className="dashed-price">₹3199</span>
-     </div>
-    </div>
+    })}
+   
    </div>
+   
    </div>
 
    {/* home page comments................. */}
@@ -166,47 +191,28 @@ const Home = () => {
 {/* career opportunity 4 divs... 2*/}
    <h2>Learners are viewing</h2>
 
-   <div className="home-careeropportunities-4div">
-    <div className="home-careeropportunities-div" >
-      <img className="home-careeropportunities-div-image" src="https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg" alt="not found"/>
-      <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
-     <p>JOse Portilla</p>
-     <p>Ratings</p>
-     <div className="home-careeropportunities-div-price">
-     <p>₹389</p><span className="dashed-price">₹3199</span>
-     </div>
-    </div>
+   
+<div className="home-careeropportunities-4div">
+    {data.filter((item)=>item.category==="Home").map((item,index)=>{
+      return(
+        <div className="home-careeropportunities-div"  key={index}>
+        <img className="home-careeropportunities-div-image" src={item.image} alt="not found"/>
+        <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
+       <p>{item.field}</p>
+       <p>{item.Rating}</p>
+       <div className="home-careeropportunities-div-price">
+       <p>{item.latestprice}</p><span className="dashed-price">{item.oldprice}</span>
+       </div>
+       <div><button className="home-addtocart" onClick={()=>handleCart(item)}>Add to cart</button></div>
 
-    <div className="home-careeropportunities-div" >
-    <img className="home-careeropportunities-div-image" src="https://img-c.udemycdn.com/course/240x135/543600_64d1_4.jpg" alt="not found"/>
-      <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
-     <p>JOse Portilla</p>
-     <p>Ratings</p>
-     <div className="home-careeropportunities-div-price">
-     <p>₹389</p><span className="dashed-price">₹3199</span>
-     </div>
-    </div>
+      </div>
+      )
+      
 
-    <div className="home-careeropportunities-div" >
-    <img className="home-careeropportunities-div-image" src="https://img-c.udemycdn.com/course/240x135/2776760_f176_10.jpg" alt="not found"/>
-      <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
-     <p>JOse Portilla</p>
-     <p>Ratings</p>
-     <div className="home-careeropportunities-div-price">
-     <p>₹389</p><span className="dashed-price">₹3199</span>
-     </div>
-    </div>
-
-    <div className="home-careeropportunities-div" >
-    <img className="home-careeropportunities-div-image" src="https://img-c.udemycdn.com/course/240x135/950390_270f_3.jpg" alt="not found"/>
-      <div> <h4>The Complete Python Bootcamp From Zero to Hero in Python...</h4></div>
-     <p>JOse Portilla</p>
-     <p>Ratings</p>
-     <div className="home-careeropportunities-div-price">
-     <p>₹389</p><span className="dashed-price">₹3199</span>
-     </div>
-    </div>
+    })}
+   
    </div>
+
    </div>
 
 {/* Top Categories... */}

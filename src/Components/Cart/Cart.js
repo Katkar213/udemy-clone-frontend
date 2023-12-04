@@ -186,9 +186,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios"
 import "./Cart.css"
 import {loadStripe} from "@stripe/stripe-js"
+import { useDispatch } from 'react-redux';
+import { Decrement } from "../Redux/Action";
 
 const Cart = () => {
-
+const dispatch=useDispatch();
 const[data,setData]=useState([])
 
 useEffect(()=>{
@@ -201,11 +203,16 @@ setData(res.data)
 
 
 const handleremove=async(itemId)=>{
+  
+  
+  
+ 
 await axios.post("https://udemy-backend-tzzj.onrender.com/api/removeitem",({id:itemId}))
 .then((res)=>console.log(res.data))
 
 await axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata").then((res)=>{
     setData(res.data)
+   dispatch((Decrement()))
 })
 }
 // const [sum, setSum] = useState();
@@ -286,13 +293,13 @@ const makePayment=async ()=>{
         {data.map((item, index) => {
           return (
 
-            <div className="outer">
+            <div className="outer" key={index}>
             <div className="wrapping-inner-parent" key={index} >
               <img src={item.image} alt="not found" className="images"></img>
               <h4 className="images-tile"> {item.imagetitle}</h4>
               <p>{item.field}</p>
               <p className="images-rating"><span>{item.Rating.slice(0, 3)}</span>{item.Rating.slice(3, 20)}</p>
-              <div className="images-div-prices">
+              <div className="cart-images-div-prices">
                 <p>{item.latestprice}</p><span className="commonui-dashed-price">{item.oldprice}</span>
                 
               </div>
