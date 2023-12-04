@@ -2,6 +2,9 @@
 const initialstate=0;
 
 export default function Reducer(state=initialstate,action){
+  
+
+    
  switch(action.type){
     case "increment":
          return state+=1;
@@ -14,8 +17,7 @@ export default function Reducer(state=initialstate,action){
         return state-=1;
         default:
             return state;
-
+    }
+    
     
  }
-
-}

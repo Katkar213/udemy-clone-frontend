@@ -9,6 +9,7 @@ const Home = () => {
   const [data,setData]=useState([])
   const[data2,setData2]=useState()
   const dispatch=useDispatch();
+  const token=localStorage.getItem("token")
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,30 +25,34 @@ const Home = () => {
 
 // add to cart.....
 
+  
+  useEffect(()=>{
+    axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
+    .then((res)=>{
+   setData2(res.data)})
+  },[])
 
-useEffect(()=>{
-  axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
-  .then((res)=>{
- setData2(res.data)})
-},[])
-
-const handleCart=async(item)=>{
-const existdata=data2.find((items)=>items.id===item.id)
-console.log(data2)
-console.log(existdata)
-if(existdata){
-  alert("data exist");
-}
-else{
-  dispatch(Increment())
-  await axios.post("https://udemy-backend-tzzj.onrender.com/api/addToCart",item)
- 
-}
-axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
-.then((res)=>{
-setData2(res.data)})
-
-}
+  const handleCart=async(item)=>{
+    const existdata=data2.find((items)=>items.id===item.id)
+    console.log(data2)
+     console.log(existdata)
+     if(existdata){
+       alert("data exist");
+     }
+     else if(token){
+       console.log("token presents")
+       dispatch(Increment())
+       await axios.post("https://udemy-backend-tzzj.onrender.com/api/addToCart",item)
+      
+     }
+     else{
+       alert("log in first!")
+     }
+     axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
+     .then((res)=>{
+    setData2(res.data)})
+   
+   }
 
 
 

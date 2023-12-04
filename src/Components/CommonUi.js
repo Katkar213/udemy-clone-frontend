@@ -271,7 +271,7 @@ const PopularTopics = [
 
 
 const CommonUi = () => {
-
+const token=localStorage.getItem("token")
   const dispatch=useDispatch();
   const[data2,setData2]=useState()
   // const userid=localStorage.getItem("userId");
@@ -290,10 +290,14 @@ const handleCart=async(item)=>{
   if(existdata){
     alert("data exist");
   }
-  else{
+  else if(token){
+    console.log("token presents")
     dispatch(Increment())
     await axios.post("https://udemy-backend-tzzj.onrender.com/api/addToCart",item)
    
+  }
+  else{
+    alert("log in first!")
   }
   axios.get("https://udemy-backend-tzzj.onrender.com/api/getcartdata")
   .then((res)=>{
